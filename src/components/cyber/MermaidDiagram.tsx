@@ -9,7 +9,7 @@ async function ensureMermaid() {
     mermaid.initialize({
       startOnLoad: false,
       theme: "base",
-      securityLevel: "loose",
+      securityLevel: "strict",
       fontFamily: "JetBrains Mono, ui-monospace, monospace",
       themeVariables: {
         background: "#1a1d24",
