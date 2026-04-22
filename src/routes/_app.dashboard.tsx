@@ -183,14 +183,21 @@ function Dashboard() {
 }
 
 export function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
+  const [now, setNow] = useState<string>("");
+  useEffect(() => {
+    const update = () => setNow(new Date().toUTCString().slice(5, 22));
+    update();
+    const id = setInterval(update, 30_000);
+    return () => clearInterval(id);
+  }, []);
   return (
     <div className="flex items-end justify-between border-b border-border pb-3">
       <div>
         <h1 className="font-mono text-lg uppercase tracking-[0.18em] text-foreground">{title}</h1>
         {subtitle && <p className="mt-1 font-mono text-[11px] text-muted-foreground">{subtitle}</p>}
       </div>
-      <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-        {new Date().toUTCString().slice(5, 22)} UTC
+      <span suppressHydrationWarning className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+        {now ? `${now} UTC` : ""}
       </span>
     </div>
   );
