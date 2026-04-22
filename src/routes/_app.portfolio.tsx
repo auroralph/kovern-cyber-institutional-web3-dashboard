@@ -73,7 +73,7 @@ function Portfolio() {
                     fontFamily: "JetBrains Mono",
                     fontSize: 11,
                   }}
-                  formatter={(v: number) => `$${v.toLocaleString(undefined, { maximumFractionDigits: 0 })}`}
+                  formatter={(v) => `$${Number(v).toLocaleString(undefined, { maximumFractionDigits: 0 })}`}
                 />
               </PieChart>
             </ResponsiveContainer>

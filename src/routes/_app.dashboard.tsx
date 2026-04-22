@@ -79,7 +79,7 @@ function Dashboard() {
                     fontFamily: "JetBrains Mono",
                     fontSize: 11,
                   }}
-                  formatter={(v: number) => [`$${(v / 1e9).toFixed(3)}B`, "TVL"]}
+                  formatter={(v) => [`$${(Number(v) / 1e9).toFixed(3)}B`, "TVL"]}
                 />
                 <Line
                   type="monotone"
